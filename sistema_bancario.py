@@ -1,7 +1,5 @@
 from datetime import date, datetime
-data_hora = datetime.now()
 mascara_ptbr = "%d/%m/%Y %H:%M:%S %a"
-
 menu = '''
 Digite a opção desejada:
 [d] Depositar
@@ -15,7 +13,7 @@ saldo = 0
 limite_valor_saque = 500
 extrato = ""
 numero_saque = 0
-LIMITE_QUANTIDADE_SAQUE = 3
+LIMITE_QUANTIDADE_SAQUE = 10
 
 while True:
     opcao = input(menu)
@@ -27,7 +25,6 @@ while True:
         print(f'Você depositou o valor de R$ {valor_deposito:.2f}') #confirmação de saldo
         extrato += f'Depósito valor R$ {valor_deposito:.2f}\n' #adicionando informação de depósito ao extrato
         data_hora = datetime.now()
-        mascara_ptbr = "%d/%m/%Y %H:%M:%S %a"
         extrato += f'Data da transação {data_hora.strftime(mascara_ptbr)}\n'
 
     elif opcao == 's': #fazendo função saque
@@ -54,7 +51,6 @@ while True:
             numero_saque += 1 # contador para não exceder limite de saque diário
             extrato += f'Saque valor R$ {valor_do_saque :.2f}\n' #adicionando transação ao extrato
             data_hora = datetime.now()
-            mascara_ptbr = "%d/%m/%Y %H:%M:%S %a"
             extrato += f'Data da transação {data_hora.strftime(mascara_ptbr)}\n'
         else:
             print('Número digitado é inválido')
